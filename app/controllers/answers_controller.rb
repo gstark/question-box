@@ -12,13 +12,7 @@ class AnswersController < ApplicationController
     # Find the answer
     @answer = @question.answers.find(params[:id])
 
-    if @answer.correct?
-      @answer.correct = false
-    else
-      @answer.correct = true
-    end
-
-    @answer.save
+    @answer.update_attributes(correct: !@answer.correct)
 
     redirect_to @question
     # redirect_to question_path(@question)
