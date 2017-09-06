@@ -1,7 +1,7 @@
 <div class="list-group">
   <% @questions.each do |question| %>
     <%= link_to question, class: "list-group-item" do %>
-      <%= @markdown.render(question.body).html_safe %>
+      <%= markdownify(question.body) %>
     <% end %>
   <% end %>
 </div>

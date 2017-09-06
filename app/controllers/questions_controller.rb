@@ -3,25 +3,11 @@ class QuestionsController < ApplicationController
 
   # GET /questions
   def index
-    renderer = Redcarpet::Render::HTML.new(
-      :filter_html => true,
-      :no_links => true,
-      :safe_links_only => true,
-      :hard_wrap => true)
-    @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
-
     @questions = Question.all
   end
 
   # GET /questions/1
   def show
-    renderer = Redcarpet::Render::HTML.new(
-      :filter_html => true,
-      :no_links => true,
-      :safe_links_only => true,
-      :hard_wrap => true)
-    @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
-
     @question = Question.find(params[:id])
   end
 

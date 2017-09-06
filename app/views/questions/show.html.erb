@@ -2,4 +2,4 @@
   <h1>Question <small></small></h1>
 </div>
 
-<%= @markdown.render(@question.body).html_safe %>
+<%= markdownify(@question.body) %>
