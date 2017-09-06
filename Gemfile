@@ -23,6 +23,9 @@ gem 'uglifier', '>= 1.3.0'
 # Rendering markdown
 gem 'redcarpet'
 
+# Pagination
+gem 'kaminari'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
