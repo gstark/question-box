@@ -37,6 +37,11 @@
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to "Home", root_path %></li>
         </ul>
+        <% if logged_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to "Logout", logout_path %></li>
+          </ul>
+        <% end %>
       </div>
     </div>
   </nav>
