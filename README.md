@@ -7,3 +7,4 @@
 - `trash app/views/questions`
 - `rails generate controller Pages welcome`
 - `rails g kaminari:views bootstrap3`
+- `rails generate model Answer body:text question:references`

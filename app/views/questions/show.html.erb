@@ -3,3 +3,41 @@
 </div>
 
 <%= markdownify(@question.body) %>
+
+<ul class="list-group">
+  <% @question.answers.each do |answer| %>
+    <li class="list-group-item"><%= markdownify(answer.body) %></li>
+  <% end %>
+</ul>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Answer</div>
+  <div class="panel-body">
+    <p>
+      <%= form_for([@question, @answer], html: { class: "form-horizontal", role: "form" }) do |f| %>
+        <%# Alert showing errors for this form %>
+        <% if @answer.errors.any? %>
+          <div class="alert alert-danger alert-dismissable" role="alert">
+            <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4><%= pluralize(@answer.errors.count, "error") %> prohibited this comment from being saved:</h4>
+
+            <ul>
+            <% @answer.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <div class="col-sm-10">
+            <%= f.text_area :body, class: "form-control", placeholder: "Answer ..." %>
+          </div>
+          <div class="col-sm-2">
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+          </div>
+        </div>
+      <% end -%>
+    </p>
+  </div>

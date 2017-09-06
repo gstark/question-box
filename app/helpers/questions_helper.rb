@@ -7,6 +7,6 @@ module QuestionsHelper
       :hard_wrap => true)
     markdown = Redcarpet::Markdown.new(renderer, extensions = {})
     
-    markdown.render(text).html_safe
+    markdown.render(text.to_s).html_safe
   end
 end
