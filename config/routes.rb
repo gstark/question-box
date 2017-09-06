@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :questions do
-    resources :answers
+    resources :answers do
+      member do
+        get 'toggle', as: :toggle
+      end
+    end
   end
 
   get 'pages/welcome'

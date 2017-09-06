@@ -5,8 +5,19 @@
 <%= markdownify(@question.body) %>
 
 <ul class="list-group">
-  <% @question.answers.each do |answer| %>
-    <li class="list-group-item"><%= markdownify(answer.body) %></li>
+  <% @question.answers.order(:created_at).select(&:persisted?).each do |answer| %>
+    <li class="list-group-item">
+      <span class="pull-right">
+        <%= link_to toggle_question_answer_path(@question, answer) do %>
+          <% if answer.correct? %>
+            <i class="fa fa-check correct-answer" aria-hidden="true"></i>
+          <% else %>
+            <i class="fa fa-times incorrect-answer" aria-hidden="true"></i>
+          <% end %>
+        <% end %>
+      </span>
+      <%= markdownify(answer.body) %>
+    </li>
   <% end %>
 </ul>
 
