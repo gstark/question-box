@@ -6,3 +6,4 @@
 - `rails db:migrate`
 - `trash app/views/questions`
 - `rails generate controller Pages welcome`
+- `rails g kaminari:views bootstrap3`
