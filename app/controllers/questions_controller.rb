@@ -1,4 +1,6 @@
 class QuestionsController < ApplicationController
+  before_action :authorize!
+
   # GET /questions
   def index
     @questions = Question.all
