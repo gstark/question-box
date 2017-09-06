@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-sm-offset-3 col-sm-6">
+    <div class="page-header">
+      <h1>What is your question?</h1>
+    </div>
+    <%= form_for(@question) do |f| %>
+      <% if @question.errors.any? %>
+        <div class="alert alert-danger alert-dismissable" role="alert">
+          <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4><%= pluralize(@book.errors.count, "error") %> prohibited this book from being saved:</h4>
+
+          <ul>
+          <% @question.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.text_area :body, class: "form-control", placeholder: "question" %>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    <% end %>
+  </div>
+</div>

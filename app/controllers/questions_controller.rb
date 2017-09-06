@@ -53,6 +53,6 @@ class QuestionsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def question_params
-    params.fetch(:question, {})
+    params.require(:question).permit("body")
   end
 end
